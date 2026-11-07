@@ -7,7 +7,7 @@ exports.reduce = function(desc) {
   var sdp = desc.sdp;
   var lines = sdp.split('\r\n');
   lines = lines.filter(function (line) {
-    return ((line.indexOf('a=candidate:') === 0) && line.indexOf('typ relay') !== -1 && line.charAt(14) === '1') || 
+    return ((line.indexOf('a=candidate:') === 0) && line.indexOf('typ relay') !== -1 && line.split(' ')[1] === '1') ||
       line.indexOf('a=ice-ufrag:') === 0 ||
       line.indexOf('a=ice-pwd:') === 0 ||
       line.indexOf('a=fingerprint:') === 0;
